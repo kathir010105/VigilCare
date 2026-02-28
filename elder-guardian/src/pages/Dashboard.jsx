@@ -4,6 +4,7 @@ import { useUser } from '../context/UserContext'
 import HealthMonitor from '../components/HealthMonitor'
 import EmergencyPanel from '../components/EmergencyPanel'
 import AdaptiveUI from '../components/AdaptiveUI'
+import FallDetection from '../components/FallDetection'
 
 export default function Dashboard() {
   const navigate = useNavigate()
@@ -43,10 +44,10 @@ export default function Dashboard() {
     greeting: { fontSize: 18, fontWeight: 700, color: '#1C1C1E' },
     greetSub: { fontSize: 12, color: '#8E8E93' },
     logoutBtn: {
-      width: 38, height: 38, borderRadius: '50%',
-      background: '#F2F2F7', border: 'none',
-      fontSize: 16, cursor: 'pointer',
-      display: 'flex', alignItems: 'center', justifyContent: 'center'
+      background: '#FF3B30', color: '#fff', border: 'none',
+      borderRadius: '12px', padding: '8px 16px',
+      fontSize: 13, fontWeight: 600, cursor: 'pointer',
+      fontFamily: 'inherit'
     },
     body: { padding: '16px 16px 0' },
     section: { marginBottom: 20 },
@@ -97,8 +98,33 @@ export default function Dashboard() {
             <div style={s.greetSub}>Patient Dashboard</div>
           </div>
         </div>
+
+        {/* Desktop top nav — hidden on mobile via CSS */}
+        <div className="dashboard-topnav" style={{ display: 'none', alignItems: 'center', gap: 6 }}>
+          {[
+            { icon: '📍', label: 'Map' },
+            { icon: '📋', label: 'Feed' },
+            { icon: '💬', label: 'Chat' },
+            { icon: '⚙️', label: 'More' }
+          ].map((item, i) => (
+            <button key={i} style={{
+              background: i === 1 ? '#0A84FF' : '#F2F2F7',
+              color: i === 1 ? '#fff' : '#1C1C1E',
+              border: 'none', borderRadius: '12px',
+              padding: '8px 16px', cursor: 'pointer',
+              fontSize: 13, fontWeight: 600,
+              display: 'flex', alignItems: 'center', gap: 6,
+              fontFamily: 'inherit',
+              transition: 'background 0.2s'
+            }}>
+              <span style={{ fontSize: 16 }}>{item.icon}</span>
+              {item.label}
+            </button>
+          ))}
+        </div>
+
         <button style={s.logoutBtn} onClick={() => { logoutUser(); navigate('/') }}>
-          ✕
+          Sign Out
         </button>
       </div>
 
@@ -141,6 +167,12 @@ export default function Dashboard() {
             <div style={s.section}>
               <div style={s.sectionTitle}>📊 Health Monitor</div>
               <HealthMonitor />
+            </div>
+
+            {/* Fall Detection */}
+            <div style={s.section}>
+              <div style={s.sectionTitle}>📱 Fall Detection</div>
+              <FallDetection />
             </div>
 
             {/* Quick Cards */}

@@ -61,10 +61,19 @@ body {
   }
 
   /* ── Dashboard ── */
+  .dashboard-page {
+    padding-bottom: 0 !important;
+  }
   .dashboard-topbar {
     max-width: 1100px !important;
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+  .dashboard-topnav {
+    display: flex !important;
+  }
+  .dashboard-bottomnav {
+    display: none !important;
   }
   .dashboard-body {
     max-width: 1100px !important;
@@ -134,8 +143,7 @@ body {
 /* ── Large desktops (≥1200px) ── */
 @media (min-width: 1200px) {
   .dashboard-topbar,
-  .dashboard-body,
-  .dashboard-bottomnav {
+  .dashboard-body {
     max-width: 1300px !important;
   }
   .dashboard-grid {

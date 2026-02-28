@@ -145,10 +145,10 @@ export default function Caregiver() {
     greeting: { fontSize: 18, fontWeight: 700, color: '#1C1C1E' },
     greetSub: { fontSize: 12, color: '#8E8E93' },
     logoutBtn: {
-      width: 38, height: 38, borderRadius: '50%',
-      background: '#F2F2F7', border: 'none',
-      fontSize: 16, cursor: 'pointer',
-      display: 'flex', alignItems: 'center', justifyContent: 'center'
+      background: '#FF3B30', color: '#fff', border: 'none',
+      borderRadius: '12px', padding: '8px 16px',
+      fontSize: 13, fontWeight: 600, cursor: 'pointer',
+      fontFamily: 'inherit'
     },
     body: { padding: '16px' },
     alertBanner: {
@@ -251,7 +251,7 @@ export default function Caregiver() {
           </div>
         </div>
         <button style={s.logoutBtn} onClick={() => { logoutUser(); navigate('/') }}>
-          ✕
+          Sign Out
         </button>
       </div>
 
