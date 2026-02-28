@@ -1,0 +1,151 @@
+/* ── Elder Guardian – Global Theme ── */
+:root {
+  --blue: #0A84FF;
+  --blue-dark: #0060D1;
+  --blue-bg: #EEF5FF;
+  --sos-red: #E8441A;
+  --sos-red-dark: #C03010;
+  --card-bg: #FFFFFF;
+  --page-bg: linear-gradient(160deg, #e8eeff 0%, #f5f0ff 100%);
+  --text-primary: #0D0D0D;
+  --text-secondary: #8A8A8E;
+  --shadow: 0 8px 32px rgba(0,0,0,0.10);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(160deg, #e8eeff 0%, #f5f0ff 100%);
+  min-height: 100vh;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  70% { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+@keyframes sos-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* ── Desktop Responsive ───────────────────────────── */
+
+/* Base helper classes (mobile — no special layout) */
+.dashboard-grid,
+.dashboard-col,
+.caregiver-content,
+.caregiver-patients,
+.caregiver-events { /* mobile: normal block flow */ }
+
+.caregiver-events {
+  margin-top: 20px;
+}
+
+/* ── Tablet + Desktop (≥768px) ── */
+@media (min-width: 768px) {
+
+  /* Register */
+  .register-card {
+    max-width: 520px !important;
+    padding: 48px 40px !important;
+  }
+
+  /* ── Dashboard ── */
+  .dashboard-topbar {
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .dashboard-body {
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 24px 24px 0 !important;
+  }
+  .dashboard-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+  .dashboard-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .dashboard-col > * {
+    margin-bottom: 0 !important;
+  }
+  .dashboard-bottomnav {
+    max-width: 1100px !important;
+  }
+
+  /* ── Caregiver ── */
+  .caregiver-topbar {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .caregiver-body {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 24px !important;
+  }
+  .caregiver-stats {
+    max-width: 700px !important;
+  }
+  .caregiver-content {
+    display: grid !important;
+    grid-template-columns: 360px 1fr !important;
+    gap: 24px !important;
+    align-items: start !important;
+    margin-top: 8px !important;
+  }
+  .caregiver-events {
+    margin-top: 0 !important;
+  }
+  .caregiver-patients {
+    position: sticky;
+    top: 24px;
+  }
+
+  /* ── Crisis Reported ── */
+  .crisis-card {
+    max-width: 500px !important;
+    padding: 32px !important;
+  }
+
+  /* ── Health Monitor ── */
+  .health-monitor {
+    padding: 24px !important;
+  }
+}
+
+/* ── Large desktops (≥1200px) ── */
+@media (min-width: 1200px) {
+  .dashboard-topbar,
+  .dashboard-body,
+  .dashboard-bottomnav {
+    max-width: 1300px !important;
+  }
+  .dashboard-grid {
+    gap: 32px !important;
+  }
+  .caregiver-topbar,
+  .caregiver-body {
+    max-width: 1400px !important;
+  }
+  .caregiver-content {
+    grid-template-columns: 420px 1fr !important;
+  }
+}
